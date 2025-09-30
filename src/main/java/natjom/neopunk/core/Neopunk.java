@@ -1,6 +1,7 @@
 package natjom.neopunk.core;
 
 import com.mojang.logging.LogUtils;
+import natjom.neopunk.init.NeopunkMenus;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,11 +25,14 @@ public class Neopunk {
     public Neopunk() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+
+
         modEventBus.addListener(this::commonSetup);
 
         ItemsRegister.register(modEventBus);
         TabsRegister.register(modEventBus);
 
+        NeopunkMenus.MENUS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
 
     }

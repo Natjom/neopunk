@@ -20,7 +20,7 @@ public final class TabsRegister {
                             .title(Component.translatable("itemGroup.neopunk.neopunk"))
                             .icon(() -> ItemsRegister.ICON.get().getDefaultInstance())
                             .displayItems((params, output) -> {
-                                // output.accept(ItemsRegister.ICON.get()); // Mandatory
+                                output.accept(ItemsRegister.ICON.get()); // Mandatory
 
                             })
                             .build()
