@@ -24,4 +24,8 @@ public class CustomInventoryScreen extends AbstractContainerScreen<CustomInvento
         super.render(guiGraphics, mouseX, mouseY, partialTicks);
         this.renderTooltip(guiGraphics, mouseX, mouseY);
     }
+
+    @Override
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) { }
+
 }

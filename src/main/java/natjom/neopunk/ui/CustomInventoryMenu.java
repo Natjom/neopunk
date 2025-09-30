@@ -1,9 +1,8 @@
 package natjom.neopunk.ui;
 
 import natjom.neopunk.init.NeopunkMenus;
-import natjom.neopunk.capabilities.PocketInventory;
+import natjom.neopunk.capabilities.PlayerPocket;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -13,18 +12,16 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class CustomInventoryMenu extends AbstractContainerMenu {
     private final Player player;
-    private final PocketInventory pocket;
 
     public CustomInventoryMenu(int id, Inventory playerInv) {
         super(NeopunkMenus.CUSTOM_INVENTORY.get(), id);
         this.player = playerInv.player;
-        this.pocket = new PocketInventory();
 
         this.addSlot(new Slot(playerInv, 0, 44, 35));
 
-        final SimpleContainer pocket = new SimpleContainer(1);
-
-        this.addSlot(new Slot(pocket, 0, 98, 35));
+        player.getCapability(PlayerPocket.POCKET).ifPresent(handler -> {
+            this.addSlot(new SlotItemHandler(handler, 0, 98, 35));
+        });
     }
 
     public CustomInventoryMenu(int id, Inventory playerInv, FriendlyByteBuf buf) {

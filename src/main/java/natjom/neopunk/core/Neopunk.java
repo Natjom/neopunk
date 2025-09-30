@@ -2,6 +2,7 @@ package natjom.neopunk.core;
 
 import com.mojang.logging.LogUtils;
 import natjom.neopunk.init.NeopunkMenus;
+import natjom.neopunk.network.MyNetwork;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -34,6 +35,7 @@ public class Neopunk {
 
         NeopunkMenus.MENUS.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
+        MyNetwork.register();
 
     }
 
