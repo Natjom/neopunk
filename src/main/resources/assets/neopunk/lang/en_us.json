@@ -1,5 +1,15 @@
 {
   "itemGroup.neopunk.neopunk": "NeoPunk",
   "item.neopunk.icon": "Neopunk's Icon",
-  "item.neopunk.jacket": "Jacket"
+  "item.neopunk.boots": "Boots",
+  "item.neopunk.charm": "Charm",
+  "item.neopunk.glasses": "Glasses",
+  "item.neopunk.hat": "Hat",
+  "item.neopunk.jacket": "Jacket",
+  "item.neopunk.kevlar": "Kevlar",
+  "item.neopunk.leg_armor": "Leg Armor",
+  "item.neopunk.mask": "Mask",
+  "item.neopunk.pants": "Pants",
+  "item.neopunk.shirt": "Shirt",
+  "item.neopunk.underwearm": "Underwear"
 }
