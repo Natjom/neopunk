@@ -1,6 +1,8 @@
 package natjom.neopunk.init;
 import natjom.neopunk.core.Neopunk;
 import natjom.neopunk.gameplay.item.RpPropItem;
+import natjom.neopunk.item.WearableItem;
+import natjom.neopunk.item.WearableType;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,6 +18,10 @@ public final class ItemsRegister {
     public static final RegistryObject<Item> ICON =
             ITEMS.register("icon", () -> new RpPropItem(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> JACKET =
+            ITEMS.register("jacket", () -> new WearableItem(
+                    new Item.Properties().stacksTo(1), WearableType.OVER_TOP
+            ));
 
     public static void register(IEventBus modBus) {
         ITEMS.register(modBus);

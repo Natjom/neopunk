@@ -21,6 +21,7 @@ public final class TabsRegister {
                             .icon(() -> ItemsRegister.ICON.get().getDefaultInstance())
                             .displayItems((params, output) -> {
                                 output.accept(ItemsRegister.ICON.get()); // Mandatory
+                                output.accept(ItemsRegister.JACKET.get());
 
                             })
                             .build()
