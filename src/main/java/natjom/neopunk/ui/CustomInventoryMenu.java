@@ -55,7 +55,7 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
 
         int mainCol = 1;
         int mainX = startX + mainCol * (slotSize + spacing);
-        int mainY = startY + 5 * (slotSize + spacing); // saute 1 ligne vide
+        int mainY = startY + 4 * (slotSize + spacing);
         this.addSlot(new Slot(playerInv, 0, mainX, mainY));
     }
 

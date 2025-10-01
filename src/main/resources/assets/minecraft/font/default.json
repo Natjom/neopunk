@@ -1,0 +1,11 @@
+{
+  "providers": [
+    {
+      "type": "ttf",
+      "file": "minecraft:play_regular.ttf",
+      "shift": [-1, 0],
+      "size": 11,
+      "oversample": 5
+    }
+  ]
+}

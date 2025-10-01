@@ -28,10 +28,13 @@ public class CustomInventoryOpener {
     public static void onKeyInput(InputEvent.Key event) {
         var mc = Minecraft.getInstance();
         if (mc.player != null && !mc.player.isCreative()) {
-            if (mc.options.keyInventory.matches(event.getKey(), event.getScanCode())
-                    && event.getAction() == GLFW.GLFW_PRESS) {
-                MyNetwork.CHANNEL.sendToServer(new OpenCustomInventoryPacket());
+            if (mc.screen == null) {
+                if (mc.options.keyInventory.matches(event.getKey(), event.getScanCode())
+                        && event.getAction() == GLFW.GLFW_PRESS) {
+                    MyNetwork.CHANNEL.sendToServer(new OpenCustomInventoryPacket());
+                }
             }
         }
     }
+
 }
