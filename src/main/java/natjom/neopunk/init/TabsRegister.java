@@ -21,10 +21,18 @@ public final class TabsRegister {
                             .icon(() -> ItemsRegister.ICON.get().getDefaultInstance())
                             .displayItems((params, output) -> {
                                 output.accept(ItemsRegister.ICON.get()); // Mandatory
+                                output.accept(ItemsRegister.GLASSES.get());
+                                output.accept(ItemsRegister.HAT.get());
+                                output.accept(ItemsRegister.MASK.get());
                                 output.accept(ItemsRegister.JACKET.get());
-
-                            })
-                            .build()
+                                output.accept(ItemsRegister.SHIRT.get());
+                                output.accept(ItemsRegister.KEVLAR.get());
+                                output.accept(ItemsRegister.PANTS.get());
+                                output.accept(ItemsRegister.UNDERWEAR.get());
+                                output.accept(ItemsRegister.LEG_ARMOR.get());
+                                output.accept(ItemsRegister.BOOTS.get());
+                                output.accept(ItemsRegister.CHARM.get());
+                            }).build()
             );
 
     public static void register(IEventBus modBus) {

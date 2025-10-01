@@ -2,6 +2,7 @@ package natjom.neopunk.ui;
 
 import natjom.neopunk.capabilities.PlayerPocket;
 import natjom.neopunk.init.NeopunkMenus;
+import natjom.neopunk.item.WearableType;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -9,7 +10,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.SlotItemHandler;
 
 public class CustomInventoryMenu extends AbstractContainerMenu {
     private final Player player;
@@ -34,17 +34,28 @@ public class CustomInventoryMenu extends AbstractContainerMenu {
 
         int slotIndex = 0;
 
-        for (int row = 0; row < clothingRows; row++) {
-            for (int col = 0; col < columns; col++) {
-                int x = startX + col * (slotSize + spacing);
-                int y = startY + row * (slotSize + spacing);
-                this.addSlot(new SlotItemHandler(handler, slotIndex++, x, y));
-            }
-        }
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX, startY, WearableType.EYES));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + (slotSize + spacing), startY, WearableType.HAT));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + 2 * (slotSize + spacing), startY, WearableType.MASK));
+
+        int row2 = startY + (slotSize + spacing);
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX, row2, WearableType.OVER_TOP));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + (slotSize + spacing), row2, WearableType.TOP));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + 2 * (slotSize + spacing), row2, WearableType.SPECIAL_TORSO));
+
+        int row3 = startY + 2 * (slotSize + spacing);
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX, row3, WearableType.LEGS));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + (slotSize + spacing), row3, WearableType.UNDERWEAR));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + 2 * (slotSize + spacing), row3, WearableType.SPECIAL_LEGS));
+
+        int row4 = startY + 3 * (slotSize + spacing);
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX, row4, WearableType.ACCESSORY));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + (slotSize + spacing), row4, WearableType.FEET));
+        this.addSlot(new FilteredWearableSlot(handler, slotIndex++, startX + 2 * (slotSize + spacing), row4, WearableType.ACCESSORY));
 
         int mainCol = 1;
         int mainX = startX + mainCol * (slotSize + spacing);
-        int mainY = startY + clothingRows * (slotSize + spacing);
+        int mainY = startY + 5 * (slotSize + spacing); // saute 1 ligne vide
         this.addSlot(new Slot(playerInv, 0, mainX, mainY));
     }
 

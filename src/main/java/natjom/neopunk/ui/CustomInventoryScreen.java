@@ -23,4 +23,11 @@ public class CustomInventoryScreen extends AbstractContainerScreen<CustomInvento
         int titleX = (this.imageWidth - this.font.width(this.title)) / 2;
         guiGraphics.drawString(this.font, this.title, titleX, 6, 0xFFFFFF);
     }
+
+    @Override
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
+        super.render(guiGraphics, mouseX, mouseY, partialTicks);
+        this.renderTooltip(guiGraphics, mouseX, mouseY);
+    }
+
 }
