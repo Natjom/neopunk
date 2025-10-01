@@ -1,7 +1,7 @@
 package natjom.neopunk.ui;
 
 import natjom.neopunk.network.MyNetwork;
-import natjom.neopunk.network.OpenCustomInventoryPacket;
+import natjom.neopunk.network.PacketOpenCustomInventory;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
@@ -31,7 +31,7 @@ public class CustomInventoryOpener {
             if (mc.screen == null) {
                 if (mc.options.keyInventory.matches(event.getKey(), event.getScanCode())
                         && event.getAction() == GLFW.GLFW_PRESS) {
-                    MyNetwork.CHANNEL.sendToServer(new OpenCustomInventoryPacket());
+                    MyNetwork.CHANNEL.sendToServer(new PacketOpenCustomInventory());
                 }
             }
         }

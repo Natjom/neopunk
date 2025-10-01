@@ -5,16 +5,16 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 import java.util.function.Supplier;
 
-public class OpenCustomInventoryPacket {
-    public OpenCustomInventoryPacket() {}
+public class PacketOpenCustomInventory {
+    public PacketOpenCustomInventory() {}
 
-    public static OpenCustomInventoryPacket decode(FriendlyByteBuf buf) {
-        return new OpenCustomInventoryPacket();
+    public static PacketOpenCustomInventory decode(FriendlyByteBuf buf) {
+        return new PacketOpenCustomInventory();
     }
 
     public void encode(FriendlyByteBuf buf) {}
 
-    public static void handle(OpenCustomInventoryPacket msg, Supplier<NetworkEvent.Context> ctx) {
+    public static void handle(PacketOpenCustomInventory msg, Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             var player = ctx.get().getSender();
             if (player != null && !player.isCreative()) {
