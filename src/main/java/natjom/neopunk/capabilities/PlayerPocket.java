@@ -14,7 +14,7 @@ public class PlayerPocket {
             CapabilityManager.get(new CapabilityToken<>() {});
 
     public static class Provider implements ICapabilityProvider {
-        private final ItemStackHandler handler = new ItemStackHandler(1); // une case
+        private final ItemStackHandler handler = new ItemStackHandler(1);
 
         @Override
         public <T> net.minecraftforge.common.util.LazyOptional<T> getCapability(Capability<T> cap, Direction side) {

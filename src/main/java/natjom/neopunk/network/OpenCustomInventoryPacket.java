@@ -22,7 +22,7 @@ public class OpenCustomInventoryPacket {
                         player,
                         new net.minecraft.world.SimpleMenuProvider(
                                 (id, inv, p) -> new natjom.neopunk.ui.CustomInventoryMenu(id, inv),
-                                net.minecraft.network.chat.Component.literal("Inventaire Custom")
+                                net.minecraft.network.chat.Component.literal("Agent")
                         )
                 );
             }

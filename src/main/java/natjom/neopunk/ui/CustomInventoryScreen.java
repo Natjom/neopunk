@@ -26,6 +26,8 @@ public class CustomInventoryScreen extends AbstractContainerScreen<CustomInvento
     }
 
     @Override
-    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) { }
+    protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        guiGraphics.drawString(this.font, this.title, 8, 6, 0xFFFFFF);
+    }
 
 }
