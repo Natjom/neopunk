@@ -6,6 +6,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 
@@ -14,11 +15,11 @@ public class PlayerPocket {
             CapabilityManager.get(new CapabilityToken<>() {});
 
     public static class Provider implements ICapabilityProvider {
-        private final ItemStackHandler handler = new ItemStackHandler(1);
+        private final ItemStackHandler handler = new ItemStackHandler(12);
 
         @Override
-        public <T> net.minecraftforge.common.util.LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
-            return cap == POCKET ? net.minecraftforge.common.util.LazyOptional.of(() -> handler).cast() : net.minecraftforge.common.util.LazyOptional.empty();
+        public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
+            return cap == POCKET ? LazyOptional.of(() -> handler).cast() : LazyOptional.empty();
         }
 
         public CompoundTag serializeNBT() { return handler.serializeNBT(); }

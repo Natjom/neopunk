@@ -9,8 +9,8 @@ public class CustomInventoryScreen extends AbstractContainerScreen<CustomInvento
 
     public CustomInventoryScreen(CustomInventoryMenu menu, Inventory inv, Component title) {
         super(menu, inv, title);
-        this.imageWidth = 120;
-        this.imageHeight = 70;
+        this.imageWidth = 180;
+        this.imageHeight = 160;
     }
 
     @Override
@@ -19,15 +19,8 @@ public class CustomInventoryScreen extends AbstractContainerScreen<CustomInvento
     }
 
     @Override
-    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        this.renderBackground(guiGraphics);
-        super.render(guiGraphics, mouseX, mouseY, partialTicks);
-        this.renderTooltip(guiGraphics, mouseX, mouseY);
-    }
-
-    @Override
     protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
-        guiGraphics.drawString(this.font, this.title, 8, 6, 0xFFFFFF);
+        int titleX = (this.imageWidth - this.font.width(this.title)) / 2;
+        guiGraphics.drawString(this.font, this.title, titleX, 6, 0xFFFFFF);
     }
-
 }
